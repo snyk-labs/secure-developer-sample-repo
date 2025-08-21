@@ -1,4 +1,117 @@
-# Test Repo
+# Snyk Badges -- Examples for Secure Developer GitHub Repos
+Your repo on GitHub can contain badges reflecting Snyk scan results. The scan can occur on the built package on NPM, PyPi, or other platforms; or it can scan the code on GitHub directly. This repo contains some vulnerabilities deliberately. It contains:
+
+* Vulnerable `app.py` for SAST / code scanning demonstration
+* Manifest file `requirements.txt` containing outdated (vulnerable) versions of packages
+* Terraform files to demonstrate Snyk IaC scanning
+
+## Setting up badges for public repositories
+### Step 1: Create a Snyk account
+
+1. Navigate to https://snyk.io and click "Sign up free"
+2. Choose GitHub OAuth for easier integration
+3. Authorize Snyk to access your GitHub account
+
+### Step 2: Import your GitHub repository
+
+1. In Snyk dashboard, go to `Integrations → Source Control → GitHub Snyk` 
+
+![alt text](documentation_images/image.png)
+
+2. Click "Add your GitHub repositories to Snyk". You may need to grant Snyk some additional permissions:
+
+![alt text](documentation_images/image-1.png)
+
+3. Select the repositories you want to monitor (you can search for them by name)
+
+![alt text](documentation_images/image-2.png)
+
+4. Wait for initial vulnerability scan to complete (usually 1-2 minutes)
+
+5. If your repo does not have any code yet, now would be a good time to add some. This repo contains some deliberately vulnerable code in `app.py`.
+
+6. If you do not have a manifest file, you'll want to configure one appropriate for your project. A manifest file is just a file from your language that is standard for indicating your dependencies. If you want Open Source dependency scanning, you’ll need at least one of the supported manifests:
+
+`Python → requirements.txt, Pipfile, or pyproject.toml`
+
+`Node.js → package.json`
+
+`Java → pom.xml or build.gradle`
+
+This repository contains a `requirements.txt` file with some deliberately outdated dependencies to show off vulnerability scanning.
+
+## GitHub Badges
+For a scan that is configured to scan your code on an open source GitHub repo directly:
+
+Basic GitHub badge:
+```
+[![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg)](https://snyk.io/test/github/{username}/{repo})
+```
+
+In our case:
+```
+[![Known Vulnerabilities](https://snyk.io/test/github/snyk-labs/secure-developer-sample-repo/badge.svg)](https://snyk.io/test/github/snyk-labs/secure-developer-sample-repo)
+```
+
+Which comes out looking like this:
+[![Known Vulnerabilities](https://snyk.io/test/github/snyk-labs/secure-developer-sample-repo/badge.svg)](https://snyk.io/test/github/snyk-labs/secure-developer-sample-repo)
+
+Or for specific branch:
+```
+[![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/{branch}/badge.svg)](https://snyk.io/test/github/{username}/{repo}/{branch})
+```
+
+Targeting a specific manifest file:
+```
+[![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg?targetFile=package.json)](https://snyk.io/test/github/{username}/{repo}?targetFile=package.json)
+```
+
+Using custom styling:
+```
+[![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg?style=flat-square)](https://snyk.io/test/github/{username}/{repo})
+```
+
+An example combining these parameters:
+```
+[![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg?targetFile=package.json&style=flat-square)](https://snyk.io/test/github/{username}/{repo}?targetFile=package.json)
+```
+
+## NPM Package Badges
+For a scan that is configured to scan your code on NPM:
+
+
+Basic npm badge:
+```
+[![Known Vulnerabilities](https://snyk.io/test/npm/{package-name}/badge.svg)](https://snyk.io/test/npm/{package-name})
+```
+
+Specific version:
+```
+[![Known Vulnerabilities](https://snyk.io/test/npm/{package-name}/{version}/badge.svg)](https://snyk.io/test/npm/{package-name}/{version})
+```
+
+## PyPI package badges
+For a scan that is configured to scan your code on PyPi:
+
+Basic PyPi badge:
+```
+[![Known Vulnerabilities](https://snyk.io/test/pip/{package-name}/badge.svg)](https://snyk.io/test/pip/{package-name})
+```
+
+## Maven Central badges
+For a scan that is configured to scan your code on Maven Central:
+Basic Maven badge:
+```
+[![Known Vulnerabilities](https://snyk.io/test/maven/{groupId}/{artifactId}/badge.svg)](https://snyk.io/test/maven/{groupId}/{artifactId})
+```
+
+## PHP Composer badges
+For a scan that is configured to scan your code on PHP Composer:
+
+Basic PHP badge:
+```
+[![Known Vulnerabilities](https://snyk.io/test/composer/{vendor}/{package}/badge.svg)](https://snyk.io/test/composer/{vendor}/{package})
+```
 
 ## PNG Badges
 
